@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   end
 
   resources :doses, only: [:destroy]
+  # makes the url simpler and doesn't need access to the cocktail id
 
 end

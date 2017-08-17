@@ -1,3 +1,10 @@
-hello
-mr
-cocktails
+<h1>Mr. Cocktails</h1>
+
+<div class="row">
+  <% @cocktails.each do |cocktail| %>
+    <%= cocktail.name %>
+     <%= link_to 'view', cocktail_path(cocktail) %>
+  <% end %>
+</div>
+
+<%= link_to 'Create a cocktail', new_cocktail_path %>

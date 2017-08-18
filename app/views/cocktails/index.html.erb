@@ -10,4 +10,20 @@
   <% end %>
 </div>
 
+<div class="container-fluid">
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path cocktail.photo? ? cocktail.photo : "kjc18vhk7rdxougme3kk.jpg", height: 300, width: 400, crop: :fill %>');">
+          <div class="card-category">Trendy</div>
+          <div class="card-description">
+            <h2><%= cocktail.name %></h2>
+            <%= link_to "See details", cocktail_path(cocktail), class: "btn btn-primary"  %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
 <%= link_to 'Create a cocktail', new_cocktail_path %>

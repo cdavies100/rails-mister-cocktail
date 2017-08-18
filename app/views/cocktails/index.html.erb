@@ -1,24 +1,17 @@
 <h1>Mr. Cocktails</h1>
 
-<%= cl_image_tag("kjc18vhk7rdxougme3kk.jpg", width: 600, height: 300, crop: :fill) %>
-
-
-<div class="row">
-  <% @cocktails.each do |cocktail| %>
-    <%= cocktail.name %>
-    <%= link_to 'view', cocktail_path(cocktail) %>
-  <% end %>
-</div>
-
 <div class="container-fluid">
   <div class="row">
     <% @cocktails.each do |cocktail| %>
       <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path cocktail.photo? ? cocktail.photo : "kjc18vhk7rdxougme3kk.jpg", height: 300, width: 400, crop: :fill %>');">
+
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path cocktail.photo? ? cocktail.photo : "pexels-photo-109275_ockuej", height: 300, width: 400, crop: :fill %>');">
+          <a class="card-link" href=<%= cocktail_path(cocktail) %> ></a>
           <div class="card-category">Trendy</div>
           <div class="card-description">
             <h2><%= cocktail.name %></h2>
-            <%= link_to "See details", cocktail_path(cocktail), class: "btn btn-primary"  %>
+            <%= link_to "See details", cocktail_path(cocktail), class: "btn btn-view" %>
+
           </div>
         </div>
       </div>
@@ -26,4 +19,7 @@
   </div>
 </div>
 
+<div class="btn create-cocktail-btn">
 <%= link_to 'Create a cocktail', new_cocktail_path %>
+</div>
+
